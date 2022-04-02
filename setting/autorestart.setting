@@ -1,0 +1,9 @@
+autorestart.script=/etc/init.d/zabbixJBossAgentDaemon restart
+autorestart.enabled=true
+max.uptime.hours=36
+lock.attempt.threshold=60
+lock.count.threshold=2
+agent.idle.time.seconds=200
+maintanance.idle.time.seconds=200
+lock.restart.to.kill=100
+           

@@ -1,0 +1,2 @@
+biz.szydlowski.zabbixjbossagent.JBossZabbixDaemon
+biz.szydlowski.zabbixjbossagent.JBossZabbixDaemon: void main(java.lang.String[])

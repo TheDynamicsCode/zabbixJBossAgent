@@ -1,0 +1,14 @@
+biz\szydlowski\zabbixjbossagent\JBossApi.class
+biz\szydlowski\zabbixjbossagent\WorkingObjects.class
+biz\szydlowski\zabbixjbossagent\ZabbixClientMaintenanceThread.class
+biz\szydlowski\zabbixjbossagent\JBossApi$1.class
+biz\szydlowski\zabbixjbossagent\MaintananceTask.class
+biz\szydlowski\zabbixjbossagent\JBossZabbixDaemon.class
+biz\szydlowski\zabbixjbossagent\ZabbixClient.class
+biz\szydlowski\zabbixjbossagent\CacheValue.class
+biz\szydlowski\zabbixjbossagent\WorkingStats.class
+biz\szydlowski\zabbixjbossagent\ZabbixMessageSender.class
+biz\szydlowski\zabbixjbossagent\Discovery.class
+biz\szydlowski\zabbixjbossagent\ZabbixClientThread.class
+biz\szydlowski\zabbixjbossagent\Version.class
+biz\szydlowski\zabbixjbossagent\ZabbixClientMaintenance.class
