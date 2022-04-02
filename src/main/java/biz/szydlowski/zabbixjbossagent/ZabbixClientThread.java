@@ -326,9 +326,10 @@ public class ZabbixClientThread implements Runnable
                 {
                     res = Discovery.discoverServerGroupsJVM(api, index);
                 }
-                else if ("discovery.asmessaging".equals(key_root))
-                {
+                else if ("discovery.asmessaging".equals(key_root)) {
                     res = Discovery.discoverMessagingOnAs(api, index);
+                } else if ("discovery.ejb.thread".equals(key_root))                {
+                    res = Discovery.discoverEJBThread(api, index);
                 } else {
                  
                     

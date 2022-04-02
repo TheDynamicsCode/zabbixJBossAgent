@@ -33,13 +33,13 @@ public class Version {
        /**Wersja programu*/
     private static int major_version = 1;
     /**Minor version*/
-    private static int minor_version = 9;
+    private static int minor_version = 10;
     /**realse*/
     private static int realase = 0;
     /**build*/
     private static int build = 0;
      /**kompilacja*/
-    private static  String update = "2021-10-12";
+    private static  String update = "2022-04-02";
    
     private static String author = "(C) by Dominik Szydłowski (DoSS)";
         

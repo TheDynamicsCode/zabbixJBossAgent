@@ -102,12 +102,14 @@ public class Discovery
         for (String s : nodes)
         {
             if (!s.contains("/")){
-                List<String> ass = api.runListQuery("/host=" + s + "/:read-children-names(child-type=server-config)");
-                for (String a : ass)
-                {
-                      if (!isSkipping(ApplicationServerSkip, ApplicationServerAdd, "applicationserver", index, a)) {
-                           res.append(" { \"{#ASHOST}\":\"").append(s).append("\", \"{#ASNAME}\":\"").append(a).append( "\"},");
-                      }
+                if (!isSkipping(HostSkip, HostAdd, "host", index, s)) {
+                    List<String> ass = api.runListQuery("/host=" + s + "/:read-children-names(child-type=server-config)");
+                    for (String a : ass)
+                    {
+                          if (!isSkipping(ApplicationServerSkip, ApplicationServerAdd, "applicationserver", index, a)) {
+                               res.append(" { \"{#ASHOST}\":\"").append(s).append("\", \"{#ASNAME}\":\"").append(a).append( "\"},");
+                          }
+                    }
                 }
             }
         }
@@ -168,7 +170,7 @@ public class Discovery
               res.append("{ \"{#DSNAME}\":\"").append(tdp).append("\"},");
         }
 
-        if (treedps.size()>0) res.deleteCharAt(res.length()-1);
+        if (!treedps.isEmpty()) res.deleteCharAt(res.length()-1);
         res.append("]}");
         return  res.toString();
     }
@@ -362,6 +364,33 @@ public class Discovery
         res = res.substring(0, res.length() - 1) + "]}";
 
         return res;
+    }
+     
+      
+    
+    public static String discoverEJBThread(JBossApi api, int index) throws CommandFormatException, IOException
+    {
+        StringBuilder res = new StringBuilder();
+        res.append("{ \"data\": [");
+        List<String> nodes = api.runListQuery("/:read-children-names(child-type=host)");
+
+        for (String s : nodes)
+        {
+            if (!s.contains("/")){
+                if (!isSkipping(HostSkip, HostAdd, "host", index, s)) {
+                    List<String> ass = api.runListQuery("/host=" + s + "/:read-children-names(child-type=server-config)");
+                    for (String a : ass)
+                    {
+                          if (!isSkipping(ApplicationServerSkip, ApplicationServerAdd, "applicationserver", index, a)) {
+                               res.append(" { \"{#ASHOST}\":\"").append(s).append("\", \"{#ASNAME}\":\"").append(a).append("\", \"{#THREAD}\":\"default\"},");
+                          }
+                    }
+                }
+            }
+        }
+        res.deleteCharAt(res.length()-1);
+        res.append("]}");
+        return  res.toString();
     }
     
 }
